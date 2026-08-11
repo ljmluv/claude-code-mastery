@@ -1,0 +1,30 @@
+/* Tailwind 유틸리티만으로 표현하기 어려운 커스텀 스타일 */
+
+/* 스크롤 시 부드러운 이동 */
+html {
+  scroll-behavior: smooth;
+}
+
+/* 섹션 등장 애니메이션: 기본은 숨김 상태, JS(IntersectionObserver)가 is-visible을 추가하면 나타남 */
+.fade-in {
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+
+.fade-in.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* 히어로 프로필 사진 뒤 코랄 글로우 (실제 디자인 에셋 없이 그라디언트로 구현) */
+.hero-glow {
+  background: radial-gradient(circle at center, rgba(255, 107, 74, 0.55), rgba(255, 107, 74, 0) 70%);
+  filter: blur(24px);
+}
+
+/* 선택 텍스트 색상도 브랜드 컬러로 통일 */
+::selection {
+  background-color: rgba(255, 107, 74, 0.3);
+  color: inherit;
+}
